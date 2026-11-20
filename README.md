@@ -26,7 +26,7 @@ The included model was serialized with **scikit-learn 1.9.0**. `requirements.txt
    ```
 
 5. The script creates a Python virtual environment, installs the Python and React dependencies, builds the React website, and starts FastAPI.
-6. Open **http://127.0.0.1:8000** in Chrome or Safari.
+6. Open [**http://127.0.0.1:8000**](https://uber-nyc-fare-estimator.onrender.com) in Chrome or Safari.
 7. Keep Terminal open while using the site. Press **Control + C** in Terminal to stop the server.
 
 If macOS blocks `start.command`, use the Terminal instructions above instead.
@@ -45,7 +45,7 @@ npm run build
 python -m uvicorn server:app --host 127.0.0.1 --port 8000
 ```
 
-Then visit http://127.0.0.1:8000.
+Then visit https://uber-nyc-fare-estimator.onrender.com
 
 ## React development mode
 
@@ -64,7 +64,7 @@ python -m uvicorn server:app --reload --host 127.0.0.1 --port 8000
 npm run dev
 ```
 
-Open http://127.0.0.1:5173. Vite forwards `/api` requests to the FastAPI server on port 8000.
+Open [http://127.0.0.1:5173](https://uber-nyc-fare-estimator.onrender.com). Vite forwards `/api` requests to the FastAPI server on port 8000.
 
 After UI changes, run `npm run build` before using the one-command production-style start script.
 
