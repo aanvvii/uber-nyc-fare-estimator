@@ -1,0 +1,159 @@
+{
+  "dataset": "ml/data/new-york-city-taxi-fare-prediction/train.csv",
+  "geography": "NYC",
+  "currency": "USD",
+  "rows_after_cleaning": 479541,
+  "sample_size_requested": 500000,
+  "target": "fare_amount",
+  "features": [
+    "distance_km",
+    "pickup_longitude",
+    "pickup_latitude",
+    "dropoff_longitude",
+    "dropoff_latitude",
+    "passenger_count",
+    "pickup_hour",
+    "pickup_dayofweek",
+    "pickup_month",
+    "is_weekend",
+    "is_rush_hour"
+  ],
+  "best_model_by_3fold_CV_RMSE": "HistGradientBoosting",
+  "model_metrics": {
+    "Ridge": {
+      "train": {
+        "MAE_USD": 2.2349,
+        "MSE_USD_squared": 17.1872,
+        "RMSE_USD": 4.1457,
+        "R2": 0.80815,
+        "MAPE_percent": 20.739,
+        "Median_AE_USD": 1.3691,
+        "Explained_variance": 0.80815
+      },
+      "test": {
+        "MAE_USD": 2.2535,
+        "MSE_USD_squared": 17.8468,
+        "RMSE_USD": 4.2246,
+        "R2": 0.80509,
+        "MAPE_percent": 20.925,
+        "Median_AE_USD": 1.3815,
+        "Explained_variance": 0.80509
+      }
+    },
+    "RandomForest": {
+      "train": {
+        "MAE_USD": 1.3922,
+        "MSE_USD_squared": 5.8981,
+        "RMSE_USD": 2.4286,
+        "R2": 0.93416,
+        "MAPE_percent": 14.228,
+        "Median_AE_USD": 0.9201,
+        "Explained_variance": 0.93416
+      },
+      "test": {
+        "MAE_USD": 1.8997,
+        "MSE_USD_squared": 13.0696,
+        "RMSE_USD": 3.6152,
+        "R2": 0.85726,
+        "MAPE_percent": 18.51,
+        "Median_AE_USD": 1.1824,
+        "Explained_variance": 0.85727
+      }
+    },
+    "ExtraTrees": {
+      "train": {
+        "MAE_USD": 1.3847,
+        "MSE_USD_squared": 5.6227,
+        "RMSE_USD": 2.3712,
+        "R2": 0.93724,
+        "MAPE_percent": 14.334,
+        "Median_AE_USD": 0.9391,
+        "Explained_variance": 0.93724
+      },
+      "test": {
+        "MAE_USD": 1.9496,
+        "MSE_USD_squared": 13.2845,
+        "RMSE_USD": 3.6448,
+        "R2": 0.85491,
+        "MAPE_percent": 19.027,
+        "Median_AE_USD": 1.2354,
+        "Explained_variance": 0.85492
+      }
+    },
+    "HistGradientBoosting": {
+      "train": {
+        "MAE_USD": 1.8653,
+        "MSE_USD_squared": 11.2757,
+        "RMSE_USD": 3.3579,
+        "R2": 0.87414,
+        "MAPE_percent": 18.2,
+        "Median_AE_USD": 1.1921,
+        "Explained_variance": 0.87414
+      },
+      "test": {
+        "MAE_USD": 1.9181,
+        "MSE_USD_squared": 13.2131,
+        "RMSE_USD": 3.635,
+        "R2": 0.85569,
+        "MAPE_percent": 18.589,
+        "Median_AE_USD": 1.2077,
+        "Explained_variance": 0.8557
+      }
+    }
+  },
+  "cross_validation": {
+    "Ridge": {
+      "R2_mean": 0.80855,
+      "R2_std": 0.00125,
+      "MAE_USD_mean": 2.2416,
+      "RMSE_USD_mean": 4.1722,
+      "cv_rows": 100000,
+      "folds": 3
+    },
+    "RandomForest": {
+      "R2_mean": 0.85154,
+      "R2_std": 0.00202,
+      "MAE_USD_mean": 1.97,
+      "RMSE_USD_mean": 3.6742,
+      "cv_rows": 100000,
+      "folds": 3
+    },
+    "ExtraTrees": {
+      "R2_mean": 0.84967,
+      "R2_std": 0.00044,
+      "MAE_USD_mean": 2.0006,
+      "RMSE_USD_mean": 3.6971,
+      "cv_rows": 100000,
+      "folds": 3
+    },
+    "HistGradientBoosting": {
+      "R2_mean": 0.85235,
+      "R2_std": 0.00324,
+      "MAE_USD_mean": 1.9596,
+      "RMSE_USD_mean": 3.664,
+      "cv_rows": 100000,
+      "folds": 3
+    }
+  },
+  "final_test_metrics": {
+    "MAE_USD": 1.9181,
+    "MSE_USD_squared": 13.2131,
+    "RMSE_USD": 3.635,
+    "R2": 0.85569,
+    "MAPE_percent": 18.589,
+    "Median_AE_USD": 1.2077,
+    "Explained_variance": 0.8557
+  },
+  "cleaning_rules": {
+    "fare": "2.50 <= fare_amount <= 200 USD",
+    "passengers": "1 to 6",
+    "coordinate_bounds": "longitude -75 to -72; latitude 40 to 42.5",
+    "haversine_distance": "0.1 to 80 km"
+  },
+  "limitations": [
+    "NYC fares are in USD and are not calibrated for Bengaluru.",
+    "Haversine distance is straight-line distance, not road distance.",
+    "Kaggle test.csv is not used for evaluation.",
+    "MAPE can be unstable for small fares; interpret with MAE and RMSE."
+  ]
+}
